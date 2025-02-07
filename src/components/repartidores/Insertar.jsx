@@ -3,7 +3,7 @@ function RepartidorInsertar() {
     return (
         <form action={insertarRepartidor}>
             <input name="nombre" placeholder="Nombre" />
-            <input name="Telefono" placeholder="Telefono" />
+            <input name="telefono" placeholder="Telefono" />
          
             <button className="border-2 border-black">Insertar repartidor</button>
         </form>
