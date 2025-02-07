@@ -1,4 +1,4 @@
-import { obtenerPedidos } from "@/lib/data";
+import { obtenerPedidos,obtenerRepartidores } from "@/lib/data";
 import Link from "next/link";
 import Modal from "@/components/Modal";
 import PedidoInsertar from "./Insertar";
@@ -7,6 +7,7 @@ import PedidoEliminar from "./Eliminar";
 
 async function Pedidos() {
   const pedidos = await obtenerPedidos();
+  const repartidores = await obtenerRepartidores();
 
   return (
     <div className="bg-gray-100 p-8 min-h-screen">
@@ -28,7 +29,7 @@ async function Pedidos() {
               <div className="flex gap-2">
                 {/* Botón Modificar */}
                 <Modal openElement={<p className="inline-block text-white bg-yellow-500 p-2 rounded-md cursor-pointer hover:bg-yellow-600 transition">Modificar</p>}>
-                  <PedidoModificar pedido={pedido} />
+                  <PedidoModificar pedido={pedido} repartidores={repartidores} />
                 </Modal>
                 {/* Botón Eliminar */}
                 <Modal openElement={<p className="inline-block text-white bg-red-600 p-2 rounded-md cursor-pointer hover:bg-red-700 transition">Eliminar</p>}>
@@ -46,6 +47,9 @@ async function Pedidos() {
             <p className="text-gray-700">
               <span className="font-bold">Fecha y Hora:</span> 
               {pedido.fechaHora ? new Date(pedido.fechaHora).toLocaleString() : "Fecha no disponible"}
+            </p>
+            <p className = "text-gray-700">
+              <span className="font-bold">Repartidor:</span> {pedido.repartidorId}
             </p>
           </li>
         ))}

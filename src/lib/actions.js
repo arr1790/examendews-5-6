@@ -49,7 +49,7 @@ export async function insertarPedido(formData) {
    
     await prisma.pedido.create({
         data: {
-            nombre: nombreCliente,
+            nombreCliente: nombreCliente,
             fechaHora: fechaHora,
             direccion: direccion,
             repartidorId: repartidorId,
