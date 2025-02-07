@@ -1,7 +1,7 @@
-import { insertarPizzas } from "@/lib/actions";
+import { insertarPizza } from "@/lib/actions";
 function PizzaInsertar() {
     return (
-        <form action={insertarPizzas}>
+        <form action={insertarPizza}>
             <input name="nombre" placeholder="Nombre" />
             <input name="precio" placeholder="Precio" />
          

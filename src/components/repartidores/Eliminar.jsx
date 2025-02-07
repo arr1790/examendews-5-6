@@ -1,5 +1,5 @@
 import { eliminarRepartidor } from "@/lib/actions";
-function RepartidorEliminar({ planta }) {
+function RepartidorEliminar({ repartidor }) {
     return (
         <>
             <h1 className="text-2xl text-red-600">¿Desea eliminar los siguentes datos</h1>

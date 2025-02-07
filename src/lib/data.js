@@ -51,7 +51,7 @@ export async function obtenerPizzas() {
 
 export async function obtenerPizza(id) {
     const pizza = await prisma.pizza.findUnique({
-        where: { id: +id }
+        where: { id: Number(id) }
     });
     return pizza;
 }

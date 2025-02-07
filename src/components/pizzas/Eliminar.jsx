@@ -1,4 +1,4 @@
-import { eliminarPizzas } from "@/lib/actions";
+import { eliminarPizza } from "@/lib/actions";
 function PizzaEliminar({ pizza }) {
     return (
         <>
@@ -6,7 +6,7 @@ function PizzaEliminar({ pizza }) {
             <p>NOMBRE: {pizza.nombre}</p>
             <p>Precio: {pizza.precio}</p>
          
-            <form action={eliminarPizzas}>
+            <form action={eliminarPizza}>
                 <input type="hidden" name="id" defaultValue={pizza.id} />
                 <button className="border-2 border-black">Eliminar</button>
             </form>

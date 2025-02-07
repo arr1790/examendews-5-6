@@ -4,7 +4,7 @@ function PedidoEliminar({ pedido }) {
         <>
             <h1 className="text-2xl text-red-600">¿Desea eliminar los siguentes datos</h1>
             <p>Nombre de cliente: {pedido.nombreCliente}</p>
-            <p>Fecha y hora: {pedido.fechaHora}</p>
+            <p>Fecha y hora: {pedido.fechaHora.toLocaleString()}</p>
             <p>Direccion: {pedido.direccion}</p>
          
             <form action={eliminarPedido}>

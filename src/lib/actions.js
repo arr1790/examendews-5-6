@@ -41,7 +41,7 @@ export async function eliminarRepartidor(formData) {
     revalidatePath('/repartidores')
 }
 //  ------------------------ PEDIDOS ------------------------
-export async function insertarPedidos(formData) {
+export async function insertarPedido(formData) {
     const nombreCliente = formData.get('nombre')
     const fechaHora= new Date(formData.get('fechaHora'))
     const direccion = formData.get('direccion')
@@ -57,7 +57,7 @@ export async function insertarPedidos(formData) {
     })
     revalidatePath('/pedidos')
 }
-export async function modificarPedidos(formData) {
+export async function modificarPedido(formData) {
     const id = Number(formData.get('id'))
     const nombreCliente = formData.get('nombre')
     const fechaHora= new Date(formData.get('fechaHora'))
@@ -69,7 +69,7 @@ export async function modificarPedidos(formData) {
             id: id
         },
         data: {
-            nombre: nombreCliente,
+            nombreCliente: nombreCliente,
             fechaHora: fechaHora,
             direccion: direccion,
             repartidorId: repartidorId,
@@ -77,7 +77,7 @@ export async function modificarPedidos(formData) {
     })
     revalidatePath('/pedidos')
 }
-export async function eliminarPedidos(formData) {
+export async function eliminarPedido(formData) {
     const id = Number(formData.get('id'))
     await prisma.pedido.delete({
         where: {
@@ -89,7 +89,7 @@ export async function eliminarPedidos(formData) {
 
 
 // ------------------------------- PIZZAS -----------------------
-export async function insertarPizzas(formData) {
+export async function insertarPizza(formData) {
     const nombre = formData.get('nombre')
     const precio = Number(formData.get('precio'))
     await prisma.pizza.create({
@@ -100,7 +100,7 @@ export async function insertarPizzas(formData) {
     })
     revalidatePath('/pizzas')
 }
-export async function modificarPizzas(formData) {
+export async function modificarPizza(formData) {
     const id = Number(formData.get('id'))
     const nombre = formData.get('nombre')
    const precio = Number(formData.get('precio'))
@@ -115,7 +115,7 @@ export async function modificarPizzas(formData) {
     })
     revalidatePath('/pizzas')
 }
-export async function eliminarPizzas(formData) {
+export async function eliminarPizza(formData) {
     const id = Number(formData.get('id'))
 
     await prisma.pizza.delete({
