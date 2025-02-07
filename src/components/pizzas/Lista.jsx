@@ -12,7 +12,7 @@ async function Pizzas() {
     return (
       <div className="bg-gray-100 p-8 min-h-screen">
           {/* Botón Insertar */}
-          <Modal openElement={<p className="inline-block text-white bg-blue-600 p-4 rounded-md cursor-pointer hover:bg-blue-700 transition mb-6">INSERTAR PEDIDO</p>}>
+          <Modal openElement={<p className="inline-block text-white bg-blue-600 p-4 rounded-md cursor-pointer hover:bg-blue-700 transition mb-6">INSERTAR PIZZAS</p>}>
               <PizzaInsertar />
           </Modal>
 

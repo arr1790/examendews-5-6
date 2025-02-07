@@ -1,4 +1,4 @@
-import { obtenerPedidos,obtenerRepartidores } from "@/lib/data";
+import { obtenerPedidos,obtenerRepartidores,obtenerPizzas } from "@/lib/data";
 import Link from "next/link";
 import Modal from "@/components/Modal";
 import PedidoInsertar from "./Insertar";
@@ -8,12 +8,13 @@ import PedidoEliminar from "./Eliminar";
 async function Pedidos() {
   const pedidos = await obtenerPedidos();
   const repartidores = await obtenerRepartidores();
+  const pizzas = await obtenerPizzas();
 
   return (
     <div className="bg-gray-100 p-8 min-h-screen">
       {/* Botón Insertar */}
       <Modal openElement={<p className="inline-block text-white bg-blue-600 p-4 rounded-md cursor-pointer hover:bg-blue-700 transition mb-6">INSERTAR PEDIDO</p>}>
-        <PedidoInsertar />
+        <PedidoInsertar repartidores={repartidores} pizzas={pizzas} />
       </Modal>
 
       <ul className="flex flex-col items-center justify-center mt-10 space-y-4">
@@ -29,7 +30,7 @@ async function Pedidos() {
               <div className="flex gap-2">
                 {/* Botón Modificar */}
                 <Modal openElement={<p className="inline-block text-white bg-yellow-500 p-2 rounded-md cursor-pointer hover:bg-yellow-600 transition">Modificar</p>}>
-                  <PedidoModificar pedido={pedido} repartidores={repartidores} />
+                  <PedidoModificar pedido={pedido} repartidores={repartidores}  pizzas={pizzas}/>
                 </Modal>
                 {/* Botón Eliminar */}
                 <Modal openElement={<p className="inline-block text-white bg-red-600 p-2 rounded-md cursor-pointer hover:bg-red-700 transition">Eliminar</p>}>

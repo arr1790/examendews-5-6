@@ -41,11 +41,14 @@ export async function eliminarRepartidor(formData) {
     revalidatePath('/repartidores')
 }
 //  ------------------------ PEDIDOS ------------------------
-export async function insertarPedido(formData) {
+export async function insertarPedido(prevState,formData) {
     const nombreCliente = formData.get('nombre')
     const fechaHora= new Date(formData.get('fechaHora'))
     const direccion = formData.get('direccion')
     const repartidorId = Number(formData.get('repartidorId'))
+    
+    
+    
    
     await prisma.pedido.create({
         data: {
@@ -56,8 +59,9 @@ export async function insertarPedido(formData) {
         }
     })
     revalidatePath('/pedidos')
+    return {success:'El pedido se inserto correctamente'}
 }
-export async function modificarPedido(formData) {
+export async function modificarPedido(prevState,formData) {
     const id = Number(formData.get('id'))
     const nombreCliente = formData.get('nombre')
     const fechaHora= new Date(formData.get('fechaHora'))
@@ -76,6 +80,7 @@ export async function modificarPedido(formData) {
         }
     })
     revalidatePath('/pedidos')
+    return {success:'El pedido se modifico correctamente'}
 }
 export async function eliminarPedido(formData) {
     const id = Number(formData.get('id'))
